@@ -3,15 +3,37 @@ import { AgGridReact } from 'ag-grid-react';
 import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 import moment from 'moment';
+import 'moment/locale/fi';
 
 export default function GridComponent(props) {
+
+    moment.locale('fi');
 
     const formatDate = (date) => {
         return (
             <div>
-                {moment(date.value).format('LLL')}
+                {moment(date.value).format('L')}
             </div>
         )
+    }
+
+    const filterParams = {
+        comparator: function (filterLocalDateAtMidnight, cellValue) {
+
+            var cellDate = new Date(cellValue)
+
+            if (filterLocalDateAtMidnight.toDateString() === cellDate.toDateString()) {
+                return 0;
+            }
+        
+            if (cellDate < filterLocalDateAtMidnight) {
+                return -1;
+            }
+        
+            if (cellDate > filterLocalDateAtMidnight) {
+                return 1;
+            }
+        }
     }
 
     const customerGridOptions = {
@@ -36,7 +58,7 @@ export default function GridComponent(props) {
 
     const trainingGridOptions = {
         columnDefs: [
-            { headerName:'Date', field:'date', cellRendererFramework: formatDate, cellRendererParams: 'date',},
+            { headerName:'Date', field: 'date', cellRendererFramework: formatDate, cellRendererParams: 'date', filter: 'agDateColumnFilter', width: 250, filterParams: filterParams},
             { headerName:'Duration', field:'duration'},
             { headerName:'Activity', field:'activity'},
            
