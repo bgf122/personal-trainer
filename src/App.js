@@ -1,13 +1,24 @@
 import './App.css';
 import CustomerList from './components/CustomerList';
-import AppBar from './components/AppBar';
+import AppBarComponent from './components/AppBarComponent';
+import TrainingList from './components/TrainingList';
+import{ BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
+    <Router>
     <div>
-      <AppBar/>
-      <CustomerList/>
+      <AppBarComponent/>
+        <Switch>
+          <Route exact path="/">
+            <CustomerList/>
+          </Route>
+          <Route path="/traininglist">
+            <TrainingList/>
+          </Route>
+        </Switch>
     </div>
+    </Router>
     
   );
 }

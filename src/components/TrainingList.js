@@ -14,7 +14,7 @@ export default function TrainingList() {
     useEffect(fetchData, []);
 
     return (
-        <div>
+        <div style={{display: 'flex', justifyContent:'center'}}>
             <GridComponent variant="trainings" data={trainings}/>
         </div>
     )
