@@ -49,7 +49,7 @@ export default function MenuComponent() {
                     onClose={handleClose}>
                     <StyledMenuItem>
                         <Link to="/">
-                            <ListItemText primary="Home"/>
+                            <ListItemText primary="Customers"/>
                         </Link>
                     </StyledMenuItem>
                     <StyledMenuItem>
