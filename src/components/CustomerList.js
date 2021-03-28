@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import GridComponent from './GridComponent';
+import AppBarComponent from './AppBarComponent';
 
 export default function CustomerList() {
 
@@ -14,8 +15,11 @@ export default function CustomerList() {
     useEffect(fetchData, []);
 
     return (
-        <div style={{display: 'flex', justifyContent:'center'}}>
-            <GridComponent variant="customers" data={customers}/>
+        <div>
+            <AppBarComponent fetchData={fetchData}/>
+            <div style={{display: 'flex', justifyContent:'center'}}>
+                <GridComponent fetchData={fetchData} variant="customers" data={customers}/>
+            </div>
         </div>
     )
 }

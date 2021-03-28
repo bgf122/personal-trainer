@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import GridComponent from './GridComponent';
+import AppBarComponent from './AppBarComponent';
 
 export default function TrainingList() {
 
@@ -14,8 +15,11 @@ export default function TrainingList() {
     useEffect(fetchData, []);
 
     return (
-        <div style={{display: 'flex', justifyContent:'center'}}>
-            <GridComponent variant="trainings" data={trainings}/>
+        <div>
+            <AppBarComponent fetchData={fetchData}/>
+            <div style={{display: 'flex', justifyContent:'center'}}>
+                <GridComponent fetchDataTrainings={fetchData} variant="trainings" data={trainings}/>
+            </div>
         </div>
     )
 }

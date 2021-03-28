@@ -6,8 +6,9 @@ import Button from '@material-ui/core/Button';
 import HomeIcon from '@material-ui/icons/Home';
 import MenuComponent from './MenuComponent';
 import{ Link } from 'react-router-dom';
+import AddCustomer from './AddCustomer';
 
-export default function AppBarComponent() {
+export default function AppBarComponent(props) {
     return (
         <div>
             <Appbar position="static">
@@ -20,6 +21,7 @@ export default function AppBarComponent() {
                     <Typography style={{flexGrow: 1}} variant="h6" >
                         Personal Trainer
                     </Typography>
+                    <AddCustomer fetchData={props.fetchData}/>
                     <MenuComponent/>
                 </Toolbar>    
             </Appbar>
