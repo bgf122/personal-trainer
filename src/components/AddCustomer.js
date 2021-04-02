@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Button from '@material-ui/core/Button';
 import Form from './Form';
 
-
 export default function AddCustomer(props) {
     const [open, setOpen] = useState(false);
     const [customer, setCustomer] = useState({

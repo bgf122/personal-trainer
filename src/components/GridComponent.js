@@ -10,7 +10,6 @@ import DeleteButton from './DeleteButton';
 
 export default function GridComponent(props) {
     moment.locale('fi');
-
     const formatDate = (date) => {
         return (
             <div>
@@ -59,8 +58,10 @@ export default function GridComponent(props) {
 
     const customerGridOptions = {
         columnDefs: [
-            { headerName:'', field:'', cellRendererFramework: editButton , cellRendererParams: '', filter: false, sortable: false, width: 40, cellStyle: {padding: 0, textAlign: 'center'}},
-            { headerName:'', field:'', cellRendererFramework: deleteButton, cellRendererParams: '', filter: false, sortable: false, width: 40, cellStyle: {padding: 0, textAlign: 'center'}},
+            { headerName:'', field:'', cellRendererFramework: editButton , cellRendererParams: '', filter: false, sortable: false, width: 40, cellStyle: {
+                padding: 0, textAlign: 'center'}},
+            { headerName:'', field:'', cellRendererFramework: deleteButton, cellRendererParams: '', filter: false, sortable: false, width: 40, cellStyle: {
+                padding: 0, textAlign: 'center'}},
             { headerName:'First Name', field:'firstname'},
             { headerName:'Last Name', field:'lastname'},
             { headerName:'Street Address', field:'streetaddress'},
@@ -82,7 +83,8 @@ export default function GridComponent(props) {
 
     const trainingGridOptions = {
         columnDefs: [
-            { headerName:'', field:'', cellRendererFramework: deleteButton, cellRendererParams: '', filter: false, sortable: false, width: 40, cellStyle: {padding: 0, textAlign: 'center'}},
+            { headerName:'', field:'', cellRendererFramework: deleteButton, cellRendererParams: '', filter: false, sortable: false, width: 40, cellStyle: {
+                padding: 0, textAlign: 'center'}},
             { headerName:'Date', field: 'date', cellRendererFramework: formatDate, cellRendererParams: 'date', filter: 'agDateColumnFilter', width: 250, filterParams: filterParams},
             { headerName:'Duration', field:'duration'},
             { headerName:'Activity', field:'activity'},
@@ -99,6 +101,7 @@ export default function GridComponent(props) {
         },        
     }
 
+//Renders the correct grid depending on the current path
     return (
         <div className="ag-theme-alpine">
             {props.variant === "customers" ? 

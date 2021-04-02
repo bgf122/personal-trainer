@@ -10,11 +10,8 @@ import 'moment/locale/fi';
 
 
 export default function AddTraining(props) {
-
     moment.locale('fi');
-
     const [open, setOpen] = useState(false);
-
     const [training, setTraining] = useState({
         date: '', activity: '', duration: 0, customer: props.customer.data.links[0].href
     });

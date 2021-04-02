@@ -1,6 +1,7 @@
 import './App.css';
 import CustomerList from './components/CustomerList';
 import TrainingList from './components/TrainingList';
+import CalendarComponent from './components/CalendarComponent';
 import{ BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 function App() {
@@ -13,6 +14,9 @@ function App() {
           </Route>
           <Route path="/traininglist">
             <TrainingList/>
+          </Route>
+          <Route path ="/calendar">
+            <CalendarComponent/>
           </Route>
         </Switch>
     </div>
