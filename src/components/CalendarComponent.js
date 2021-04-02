@@ -5,8 +5,7 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 import AppBarComponent from './AppBarComponent';
 
 export default function CalendarComponent() {
-
-    const localizer = momentLocalizer(moment)
+    const localizer = momentLocalizer(moment);
 
     const [trainings, setTrainings] = useState([]);
 

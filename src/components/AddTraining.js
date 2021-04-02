@@ -11,6 +11,7 @@ import 'moment/locale/fi';
 
 export default function AddTraining(props) {
     moment.locale('fi');
+    const [date, setDate] = useState('');
     const [open, setOpen] = useState(false);
     const [training, setTraining] = useState({
         date: '', activity: '', duration: 0, customer: props.customer.data.links[0].href
@@ -26,6 +27,13 @@ export default function AddTraining(props) {
 
     const handleInputChange = (event) => {
         setTraining({...training, [event.target.name]: event.target.value})
+    }
+
+    const handleDateChange = (event) => {
+        let date = new Date(event.target.value);
+        let dateString = date.toISOString();
+        setDate(event.target.value)
+        setTraining({...training, [event.target.name]: dateString})
     }
 
     const addTraining = () => {
@@ -50,12 +58,12 @@ export default function AddTraining(props) {
                 <DialogTitle id="form-dialog-title">Add Training for {props.customer.data.firstname + ' ' + props.customer.data.lastname}</DialogTitle>
                 <DialogContent>
                     <TextField
-                        type="date"
+                        type="datetime-local"
                         autoFocus
                         margin="dense"
                         name="date"
-                        value={training.date}
-                        onChange={event => handleInputChange(event)}
+                        value={date}
+                        onChange={event => handleDateChange(event)}
                         label="Date"
                         fullWidth
                     />
