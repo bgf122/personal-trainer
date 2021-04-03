@@ -72,8 +72,8 @@ export default function GridComponent(props) {
             { headerName: '', field: '', cellRendererFramework: addTrainingButton, cellRendererParams: '', filter: false, sortable: false,}
         ],
         defaultColDef: {
+            editable: false,
             width: 175,
-            editable: true,
             filter: 'agTextColumnFilter',
             sortable: true,
             floatingFilter: true,
@@ -92,8 +92,8 @@ export default function GridComponent(props) {
            
         ],
         defaultColDef: {
+            editable: false,
             width: 175,
-            editable: true,
             filter: 'agTextColumnFilter',
             sortable: true,
             floatingFilter: true,
